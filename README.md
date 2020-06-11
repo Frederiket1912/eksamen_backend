@@ -1,26 +1,26 @@
-## CA3
+## Eksamensprojekt
 
-[![Build Status](https://travis-ci.com/Frederiket1912/ca3_startcode_backend.svg?branch=master)](https://travis-ci.com/Frederiket1912/ca3_startcode_backend)
+[![Build Status](https://travis-ci.com/Frederiket1912/eksamen_backend.svg?branch=master)](https://travis-ci.com/Frederiket1912/eksamen_backend)
 
 **Login credentials til frontend:**
 
 user = 
 <br>
-username: user 
+username: frederik1 
 <br>
-password: test123
+password: 1234
 <br><br>
 admin = 
 <br>
-username: admin
+username: frederik2
 <br>
-password: test123
+password: 1234
 <br><br>
 both = 
 <br>
-username: user_admin
+username: frederik3
 <br>
-password: test123
+password: 1234
 <br>
 
 **Opsætningning af pipeline**
