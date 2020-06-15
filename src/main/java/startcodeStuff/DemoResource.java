@@ -1,16 +1,16 @@
-package rest;
+package startcodeStuff;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import dtos.ChuckDTO;
-import dtos.CombinedDTO;
-import dtos.DTOInterface;
-import dtos.DadDTO;
-import dtos.DogImgDTO;
-import dtos.SkyscannerDTO;
-import dtos.WeatherDTO;
-import dtos.WeatherDTO;
-import entities.User;
+import startcodeStuff.ChuckDTO;
+import startcodeStuff.CombinedDTO;
+import startcodeStuff.DTOInterface;
+import startcodeStuff.DadDTO;
+import startcodeStuff.DogImgDTO;
+import startcodeStuff.SkyscannerDTO;
+import startcodeStuff.WeatherDTO;
+import startcodeStuff.WeatherDTO;
+import startcodeStuff.User;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;

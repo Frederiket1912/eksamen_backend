@@ -1,4 +1,4 @@
-package dtos;
+package startcodeStuff;
 
 
 public class CombinedDTO {

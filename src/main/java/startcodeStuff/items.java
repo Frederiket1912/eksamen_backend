@@ -1,6 +1,17 @@
-package entities;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package startcodeStuff;
 
-public class Skyscanner {
+import java.util.List;
+
+/**
+ *
+ * @author Frederik
+ */
+public class items {
 
     private String PlaceId;
     private String PlaceName;
@@ -9,10 +20,10 @@ public class Skyscanner {
     private String CityId;
     private String CountryName;
 
-    public Skyscanner() {
+    public items() {
     }
 
-    public Skyscanner(String PlaceId, String PlaceName, String CountryId, String RegionId, String CityId, String CountryName) {
+    public items(String PlaceId, String PlaceName, String CountryId, String RegionId, String CityId, String CountryName) {
         this.PlaceId = PlaceId;
         this.PlaceName = PlaceName;
         this.CountryId = CountryId;
@@ -68,6 +79,14 @@ public class Skyscanner {
     public void setCountryName(String CountryName) {
         this.CountryName = CountryName;
     }
+
+    @Override
+    public String toString() {
+        return "items{" + "PlaceId=" + PlaceId + ", PlaceName=" + PlaceName + ", CountryId=" + CountryId + ", RegionId=" + RegionId + ", CityId=" + CityId + ", CountryName=" + CountryName + '}';
+    }
+    
+    
     
     
 }
+

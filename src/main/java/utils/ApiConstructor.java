@@ -5,9 +5,9 @@
  */
 package utils;
 
-import dtos.ChuckDTO;
-import dtos.DadDTO;
-import dtos.SkyscannerDTO;
+import startcodeStuff.ChuckDTO;
+import startcodeStuff.DadDTO;
+import startcodeStuff.SkyscannerDTO;
 
 /**
  *

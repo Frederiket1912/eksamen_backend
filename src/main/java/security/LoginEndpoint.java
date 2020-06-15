@@ -10,12 +10,14 @@ import com.nimbusds.jose.JWSSigner;
 import com.nimbusds.jose.crypto.MACSigner;
 import com.nimbusds.jwt.JWTClaimsSet;
 import com.nimbusds.jwt.SignedJWT;
+import entities.Instructor;
+import entities.Student;
 import facades.UserFacade;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import entities.User;
+import startcodeStuff.User;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -24,6 +26,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import errorhandling.AuthenticationException;
 import errorhandling.GenericExceptionMapper;
+import facades.InstructorFacade;
+import facades.StudentFacade;
 import javax.persistence.EntityManagerFactory;
 import utils.EMF_Creator;
 
@@ -33,6 +37,8 @@ public class LoginEndpoint {
   public static final int TOKEN_EXPIRE_TIME = 1000 * 60 * 30; //30 min
   private static final EntityManagerFactory EMF = EMF_Creator.createEntityManagerFactory(EMF_Creator.DbSelector.DEV, EMF_Creator.Strategy.CREATE);
   public static final UserFacade USER_FACADE = UserFacade.getUserFacade(EMF);
+  public static final StudentFacade STUDENT_FACADE = StudentFacade.getStudentFacade(EMF);
+  public static final InstructorFacade INSTRUCTOR_FACADE = InstructorFacade.getInstructorFacade(EMF);
   
   @POST
   @Consumes(MediaType.APPLICATION_JSON)
@@ -41,10 +47,22 @@ public class LoginEndpoint {
     JsonObject json = new JsonParser().parse(jsonString).getAsJsonObject();
     String username = json.get("username").getAsString();
     String password = json.get("password").getAsString();
+    String role = json.get("role").getAsString();
 
     try {
+        String token = "";
+      if (role.equals("student")){
+          Student user = STUDENT_FACADE.getVeryfiedStudent(username, password);
+          token = createToken(username, user.getRolesAsStrings());
+      }
+      else if (role.equals("instructor")) {
+          Instructor user = INSTRUCTOR_FACADE.getVeryfiedInstructor(username, password);
+          token = createToken(username, user.getRolesAsStrings());
+      }
+      else {
       User user = USER_FACADE.getVeryfiedUser(username, password);
-      String token = createToken(username, user.getRolesAsStrings());
+      token = createToken(username, user.getRolesAsStrings());
+      }
       JsonObject responseJson = new JsonObject();
       responseJson.addProperty("username", username);
       responseJson.addProperty("token", token);

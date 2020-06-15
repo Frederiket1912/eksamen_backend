@@ -1,5 +1,6 @@
-package entities;
+package startcodeStuff;
 
+import entities.Role;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

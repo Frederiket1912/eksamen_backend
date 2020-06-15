@@ -1,6 +1,6 @@
 package facades;
 
-import entities.User;
+import startcodeStuff.User;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import errorhandling.AuthenticationException;
