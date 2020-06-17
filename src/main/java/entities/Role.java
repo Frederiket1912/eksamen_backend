@@ -29,7 +29,7 @@ public class Role implements Serializable {
     @NotNull
     @Column(name = "role_name", length = 20)
     private String roleName;
-    
+
     @ManyToMany(mappedBy = "roleList")
     private List<User> userList;
 
@@ -56,5 +56,4 @@ public class Role implements Serializable {
         this.userList = userList;
     }
 
-    
 }

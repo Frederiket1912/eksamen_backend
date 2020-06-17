@@ -40,7 +40,7 @@ public class Course implements Serializable {
     public void addYogaClass(YogaClass yogaClass) {
         this.yogaClasses.add(yogaClass);
     }
-    
+
     public void removeYogaClass(YogaClass yogaClass) {
         YogaClass ycToBeDeleted = new YogaClass();
         for (YogaClass yc : this.yogaClasses) {
@@ -79,7 +79,5 @@ public class Course implements Serializable {
     public String toString() {
         return "Course{" + "courseId=" + courseId + ", courseName=" + courseName + ", descrition=" + descrition + ", yogaClasses=" + yogaClasses + '}';
     }
-
-   
 
 }

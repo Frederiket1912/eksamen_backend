@@ -29,10 +29,10 @@ public class Instructor implements Serializable {
     private List<YogaClass> yogaClasses = new ArrayList<>();
     private String password;
     @JoinTable(name = "instructor_roles", joinColumns = {
-    @JoinColumn(name = "instructor_name", referencedColumnName = "instructor_name")}, inverseJoinColumns = {
-    @JoinColumn(name = "role_name", referencedColumnName = "role_name")})
-  @ManyToMany
-  private List<Role> roleList = new ArrayList();
+        @JoinColumn(name = "instructor_name", referencedColumnName = "instructor_name")}, inverseJoinColumns = {
+        @JoinColumn(name = "role_name", referencedColumnName = "role_name")})
+    @ManyToMany
+    private List<Role> roleList = new ArrayList();
 
     public Instructor() {
     }
@@ -42,26 +42,26 @@ public class Instructor implements Serializable {
         this.password = BCrypt.hashpw(password, BCrypt.gensalt());
         this.yogaClasses = new ArrayList<>();
     }
-    
+
     public List<String> getRolesAsStrings() {
-    if (roleList.isEmpty()) {
-      return null;
+        if (roleList.isEmpty()) {
+            return null;
+        }
+        List<String> rolesAsStrings = new ArrayList();
+        for (Role role : roleList) {
+            rolesAsStrings.add(role.getRoleName());
+        }
+        return rolesAsStrings;
     }
-    List<String> rolesAsStrings = new ArrayList();
-    for (Role role : roleList) {
-      rolesAsStrings.add(role.getRoleName());
-    }
-    return rolesAsStrings;
-  }
-    
-    public void addRole(Role role){
+
+    public void addRole(Role role) {
         this.roleList.add(role);
     }
-    
+
     public void setUserPass(String password) {
         this.password = BCrypt.hashpw(password, BCrypt.gensalt());
     }
-    
+
     public boolean verifyPassword(String pw) {
         return BCrypt.checkpw(pw, this.password);
     }
@@ -73,7 +73,7 @@ public class Instructor implements Serializable {
     public void addYogaClass(YogaClass yogaClass) {
         this.yogaClasses.add(yogaClass);
     }
-    
+
     public void removeYogaClass(YogaClass yogaClass) {
         YogaClass ycToBeDeleted = new YogaClass();
         for (YogaClass yc : this.yogaClasses) {
@@ -104,5 +104,5 @@ public class Instructor implements Serializable {
     public String toString() {
         return "Instructor{" + "instructorId=" + instructorId + ", name=" + name + ", yogaClasses=" + yogaClasses + '}';
     }
-  
+
 }
